@@ -1,0 +1,29 @@
+(include_subdirs unqualified)
+
+(library
+ (name sleigh)
+ (public_name sleigh)
+ (modules sleigh)
+ (libraries stdint)
+ (cxx_names xml
+            space
+            float
+            address
+            translate
+            opcodes
+            globalcontext
+            sleigh
+            pcodeparse
+            pcodecompile
+            sleighbase
+            slghsymbol
+            slghpatexpress
+            slghpattern
+            semantics
+            context
+            filemanage
+            loadimage
+            varnodedata
+            sleigh_stubs)
+ (cxx_flags (-std=c++17 -fPIC -I ./libsla))
+ (c_library_flags (-lstdc++)))
