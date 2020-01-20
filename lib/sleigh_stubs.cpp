@@ -239,10 +239,10 @@ void PcodeRawOut::dump(const Address &_addr, OpCode opc, VarnodeData *outvar,
     break;
   }
   case CPUI_CBRANCH: {
-    assert(isize == 3);
+    assert(isize == 2);
     insn = caml_alloc(2, 4);
-    Store_field(insn, 0, ml_sleigh_vnd_to_opnd(&vars[1]));
-    Store_field(insn, 1, ml_sleigh_vnd_to_opnd(&vars[2]));
+    Store_field(insn, 0, ml_sleigh_vnd_to_opnd(&vars[0]));
+    Store_field(insn, 1, ml_sleigh_vnd_to_opnd(&vars[1]));
     break;
   }
   case CPUI_CALL: {
@@ -264,7 +264,7 @@ void PcodeRawOut::dump(const Address &_addr, OpCode opc, VarnodeData *outvar,
       args = Val_emptyarray;
     } else {
       args = caml_alloc(isize-1, 0);
-      for (size_t i = 1; i < isize; i++) {
+      for (auto i = 1; i < isize; i++) {
         Store_field(args, i-1, ml_sleigh_vnd_to_opnd(&vars[i]));
       }
     }
