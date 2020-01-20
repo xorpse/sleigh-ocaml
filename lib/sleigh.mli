@@ -36,9 +36,9 @@ type pcode = Copy of { dst : operand; src : operand }
            | Return of { dst : operand }
            | IZExt of { dst : operand; arg : operand }
            | ISExt of { dst : operand; arg : operand }
-           | ICarry of { dst : operand; arg : operand }
-           | ISCarry of { dst : operand; arg : operand }
-           | ISBorrow of { dst : operand; arg : operand }
+           | ICarry of { dst : operand; arg1 : operand; arg2 : operand }
+           | ISCarry of { dst : operand; arg1 : operand; arg2 : operand }
+           | ISBorrow of { dst : operand; arg1 : operand; arg2 : operand }
            | I2Comp of { dst : operand; arg : operand }
            | INeg of { dst : operand; arg : operand }
            | IEqual of { dst : operand; arg1 : operand; arg2 : operand }

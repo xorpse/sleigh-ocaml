@@ -287,9 +287,9 @@ void PcodeRawOut::dump(const Address &_addr, OpCode opc, VarnodeData *outvar,
   }
     UNOP(CPUI_INT_ZEXT, 0)
     UNOP(CPUI_INT_SEXT, 1)
-    UNOP(CPUI_INT_CARRY, 2)
-    UNOP(CPUI_INT_SCARRY, 3)
-    UNOP(CPUI_INT_SBORROW, 4)
+    BINOP(CPUI_INT_CARRY, 2)
+    BINOP(CPUI_INT_SCARRY, 3)
+    BINOP(CPUI_INT_SBORROW, 4)
     UNOP(CPUI_INT_2COMP, 5)
     UNOP(CPUI_INT_NEGATE, 6)
     BINOP(CPUI_INT_EQUAL, 7)
@@ -330,7 +330,6 @@ void PcodeRawOut::dump(const Address &_addr, OpCode opc, VarnodeData *outvar,
     BINOP(CPUI_FLOAT_MULT, 42)
     BINOP(CPUI_FLOAT_DIV, 43)
   default: {
-    std::cout << opc << std::endl;
     caml_raise_with_string(*caml_named_value("Sleigh_error"),
                            "unhandled pcode operation");
   }
